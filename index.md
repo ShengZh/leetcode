@@ -277,6 +277,22 @@ struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
 }
 ```
 
+# #41 First Missing Positive
+```cpp
+class Solution {
+public:
+	int firstMissingPositive(vector<int>& nums) {
+		int n = nums.size();
+		vector<int> b(n);
+		for (int i = 0; i < n; i++)
+			if (nums[i] > 0 && nums[i] <=n ) b[nums[i] - 1] = 1;
+		for (int i = 0; i < n; i++)
+			if (b[i] == 0) return i + 1;
+		return n + 1;
+	}
+};
+```
+
 # #50 Pow(x, n)
 ```cpp
 class Solution {
